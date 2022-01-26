@@ -58,12 +58,6 @@ def main():
     for i, data in enumerate(dataloader):
         if data.shape[0] == opt.batchSize:
             model.mhad_test(data)
-            print('the max value of the data_x:', data[0, :, 0].max())
-            print('the min value of the data_x:', data[0, :, 0].min())
-            print('the max value of the data_y:', data[0, :, 1].max())
-            print('the min value of the data_y:', data[0, :, 1].min())
-            print('the max value of the data_z:', data[0, :, 2].max())
-            print('the min value of the data_z:', data[0, :, 2].min())
             pred_vertices = model.pred_vertices.detach().cpu().numpy()
             point_clouds = model.point_clouds.detach().cpu().numpy()
             vote_xyz = model.vote_xyz.detach().cpu().numpy()

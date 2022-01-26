@@ -5,20 +5,16 @@ CUDA_VISIBLE_DEVICES=0,1 python3 -u -m torch.distributed.launch \
     --dist \
     --print_freq 10880 \
     --batchSize $batch_size --isTrain \
-    --dyna_use_male --dyna_use_female \
     --surreal_use_male --surreal_use_female \
-    --lr_e 1e-4 \
-    --loss_3d_weight_before 2000 \
-    --loss_3d_weight_after 1000 \
+    --lr_e 1e-3 \
+    --loss_3d_weight_before 1 \
+    --loss_3d_weight_after 1 \
     --loss_offset_weight 0.5 \
-    --loss_dir_weight 1 \
-    --loss_smpl_weight 4000 \
-    --loss_vertex_weight 4000 \
+    --loss_smpl_weight 1 \
+    --loss_vertex_weight 10 \
     --loss_segment_weight 10 \
     --save_epoch_freq 5 \
     --total_epoch 60 \
-    --continue_train \
-    --which_epoch 50 \
     --use_generated_data_file \
     --gcn_feature_dim 131 \
     --port 8098 \
