@@ -23,18 +23,25 @@ The code is tested under the following environment
 the required SMPL models are uploaded to [BaiduYUN](https://pan.baidu.com/s/19D4WGM1-bhRR-06iAO5l_A) [extract code: ame2] for download  
 ## Set up Blender
 
-You need to download Blender and install scipy package to run the first part of the code. The provided code was tested with Blender2.78(http://download.blender.org/release/Blender2.78/blender-2.78a-linux-glibc211-x86_64.tar.bz2), which is shipped with its own python executable as well as distutils package. Therefore, it is sufficient to do the following:
+You need to download Blender and install scipy package to run the first part of the code. The provided code was tested with [Blender2.78](http://download.blender.org/release/Blender2.78/blender-2.78a-linux-glibc211-x86_64.tar.bz2), which is shipped with its own python executable as well as distutils package. Therefore, it is sufficient to do the following:
 * Install pip
 > /blenderpath/2.78/python/bin/python3.5m get-pip.py
 * Install scipy
 > /blenderpath/2.78/python/bin/python3.5m pip install scipy
 * Install numpy
-> /blenderpath/2.78/python/bin/python3.5m pip install numpy
+> /blenderpath/2.78/python/bin/python3.5m pip install numpy  
+
+Notice that `get-pip.py` is downloaded from [pip](https://pip.pypa.io/en/stable/installing/). Replace the `blenderpath` with your own and set `BLENDER_PATH`.
+
+## Set up OpenEXR
+
+In order to read rendered depth images and segm images, the [OpenEXR bindings for PYTHON](http://www.excamera.com/sphinx/articles-openexr.html) is required.  
+Set the `openexr_py2_path` in `src/datasets/config.copy` as your OpenEXR path.
 
 ## Prepare Training Data
-The Synthetic Dataset SURREAL(https://github.com/gulvarol/surreal) and DFAUST(https://dfaust.is.tue.mpg.de/) can be downloaded from existing repositary.  
+The Synthetic Dataset [SURREAL](https://github.com/gulvarol/surreal) and [DFAUST](https://dfaust.is.tue.mpg.de/) can be downloaded from existing repositary.  
 We provide the shell script to generate partial point cloud from provided synthetic data.  
-You should set the corresponding data_path in the following shell scripts
+You should set the corresponding data_path in the following shell scripts, including `surreal_data_path`, `surreal_save_path`, `dfaust_save_path`, as well as the `tmp_path`, `output_path` in `src/datasets/config.copy`
 > sh scripts/generate_training_data.sh
 ## Prepare Testing Data
 We also provide the shell script to generate testing data

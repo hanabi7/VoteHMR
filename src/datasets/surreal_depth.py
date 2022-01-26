@@ -9,6 +9,7 @@ import torch.utils.data as data
 from scipy.io import loadmat
 cur_path = os.path.abspath(os.path.dirname(__file__))
 root_path = os.path.split(cur_path)[0]
+root_path = os.path.split(root_path)[0]
 sys.path.append(root_path)
 from src.datasets.smpl import SMPL
 import math
@@ -118,6 +119,8 @@ class SurrealDepth(data.Dataset):
                 pose_param = torch.from_numpy(pose_param)
                 shape_param = torch.from_numpy(shape[:, idx])
                 sequence_path = self.surreal_save_path + self.split + '/' + sequence_name + '/'
+                if not osp.exists(osp.join(self.surreal_save_path, self.split)):
+                    os.mkdir(osp.join(self.surreal_save_path, self.split))
                 if not osp.exists(sequence_path):
                     os.mkdir(sequence_path)
                 depth_image_path = sequence_path + '_' + str(i) + '.npy'
