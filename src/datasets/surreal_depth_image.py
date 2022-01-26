@@ -8,6 +8,10 @@ import random
 import pickle
 import torch.utils.data as data
 from scipy.io import loadmat
+cur_path = os.path.abspath(os.path.dirname(__file__))
+root_path = os.path.split(cur_path)[0]
+root_path = os.path.split(root_path)[0]
+sys.path.append(root_path)
 from src.utils.points_sample import PointsSample
 import math
 import transforms3d
