@@ -96,7 +96,6 @@ class HumanPointCloud(nn.Module):
             self.batchSize = opt.batchSize // torch.distributed.get_world_size()
         else:
             self.batchSize = opt.batchSize
-        self.load_mean_params()
         self.smpl_model = SMPL(self.smpl_male_filename, self.batchSize)
         # iuv maps
         if self.isTrain:
@@ -187,22 +186,6 @@ class HumanPointCloud(nn.Module):
         batch_indices = torch.arange(B, dtype=torch.long).to(device).view(view_shape).repeat(repeat_shape)
         new_points = points[batch_indices, idx, :]
         return new_points
-
-    def load_mean_params(self):
-        mean_params = np.zeros((1, self.total_params_dim))
-        mean_vals = deepdish.io.load(self.mean_param_file)
-        # initialize scale at 0.9
-        mean_params[0, 0] = 0.9
-        # set pose
-        mean_pose = mean_vals['pose']
-        mean_pose[:3] = 0.
-        mean_pose[0] = np.pi
-        mean_shape = mean_vals['shape']
-        mean_params = np.hstack((mean_shape, mean_pose))
-        mean_params = mean_params.reshape(1, 82)
-        mean_params = np.repeat(mean_params, self.batchSize, axis=0)
-        self.mean_params = torch.from_numpy(mean_params).float().cuda()
-        self.mean_params.requires_grad = False
 
     def forward(self, data_dict):
         """
