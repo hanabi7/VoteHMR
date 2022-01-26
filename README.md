@@ -1,5 +1,6 @@
 # VoteHMR
-the official implementation of ACM MM 2021 paper <VoteHMR:Occlusion-Aware Voting Network for Robust 3D Human Mesh Recovery from Partial Point Clouds>
+the official implementation of ACM MM 2021 paper <VoteHMR:Occlusion-Aware Voting Network for Robust 3D Human Mesh Recovery from Partial Point Clouds>  
+Part of the code is inspired by [DCT-ICCV](https://github.com/penincillin/DCT_ICCV-2019) and [VoteNet](https://github.com/facebookresearch/votenet)  
 # Introduction
 This is a release of our paper <VoteHMR:Occlusion-Aware Voting Network for Robust 3D Human Mesh Recovery from Partial Point Clouds>  
 Authors: Guanze Liu, Yu Rong, Lu Sheng*  

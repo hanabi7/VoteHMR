@@ -40,11 +40,11 @@ class BaseOptions():
         self.parser.add_argument('--surreal_use_male', action='store_true')
         self.parser.add_argument('--surreal_use_female',action='store_true')
         self.parser.add_argument('--smpl_model_filename', type=str,
-                                 default='/data1/liuguanze/depth_point_cloud/data/smpl_cocoplus_neutral_no_chumpy.pkl')
+                                 default='./data/smpl_cocoplus_neutral_no_chumpy.pkl')
         self.parser.add_argument('--smpl_female_filename', type=str,
-                                 default='/data1/liuguanze/depth_point_cloud/data/female_model.pkl')
+                                 default='./data/female_model.pkl')
         self.parser.add_argument('--smpl_male_filename', type=str,
-                                 default='/data1/liuguanze/depth_point_cloud/data/male_model.pkl')
+                                 default='./data/male_model.pkl')
         self.parser.add_argument('--dist', action='store_true')
         self.parser.add_argument('--local_rank', type=int, default=0)
         self.parser.add_argument('--gpu_ids', type=str, default='0,1', help='gpu ids: e.g. 0  0,1,2, 0,2. use -1 for CPU')
