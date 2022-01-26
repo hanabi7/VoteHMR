@@ -133,8 +133,8 @@ class SurrealDepth(data.Dataset):
                 # gender_param = gender[idx]
                 data_file_dir = sequence_path + str(idx) + '_dict.pkl'
                 point_cloud, segmentation = self.point_sampler.point_cloud_generate(depth_image, segm_image, camLoc)
-                point_cloud = self.point_sampler.gaussion_random_generator(point_cloud)
-                if point_cloud.shape[0] == 1000:
+                # point_cloud = self.point_sampler.gaussion_random_generator(point_cloud)
+                if point_cloud.shape[0] == 2500:
                     segmentation = segmentation - 1
                     num_segment = len(np.unique(segmentation))
                     if num_segment > 18:
