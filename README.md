@@ -1,10 +1,12 @@
 # VoteHMR
 the official implementation of ACM MM 2021 paper <VoteHMR:Occlusion-Aware Voting Network for Robust 3D Human Mesh Recovery from Partial Point Clouds>  
-Part of the code is inspired by [DCT-ICCV](https://github.com/penincillin/DCT_ICCV-2019) and [VoteNet](https://github.com/facebookresearch/votenet)  
+
 # Introduction
 This is a release of our paper <VoteHMR:Occlusion-Aware Voting Network for Robust 3D Human Mesh Recovery from Partial Point Clouds>  
 Authors: Guanze Liu, Yu Rong, Lu Sheng*  
 [[arxiv]](https://arxiv.org/abs/2110.08729)
+
+Part of the code is inspired by [DCT-ICCV](https://github.com/penincillin/DCT_ICCV-2019) and [VoteNet](https://github.com/facebookresearch/votenet)  
 # Citation
 > @inproceedings{liu2021votehmr,  
   title={VoteHMR: Occlusion-Aware Voting Network for Robust 3D Human Mesh Recovery from Partial Point Clouds},  
@@ -53,6 +55,8 @@ We provide the shell scripts to train with VoteHMR
 > sh scripts/train.sh
 * If you wish to train on multiple gpu, run the following shell script
 > sh scripts/train_dist.sh
+
+Set the `surreal_save_path` as the path to processed surreal data.
 # Evaluation
 We provide the shell scripts for evaluation, set chechpoints as your model path dir.
 > sh scripts/test.sh
