@@ -80,11 +80,11 @@ class BaseOptions():
         self.parser.add_argument('--gcn_feature_dim', type=int, default=131,
                                  help='the input feature dim of the gcn model input')
         self.parser.add_argument('--uv_processed_path', type=str,
-                                 default='/data1/liuguanze/depth_point_cloud/data/UV_Processed.mat')
+                                 default='./data/UV_Processed.mat')
         self.parser.add_argument('--UV_symmetry_filename', type=str,
-                                 default='/data1/liuguanze/depth_point_cloud/data/UV_symmetry_transforms.mat')
+                                 default='./data/UV_symmetry_transforms.mat')
         self.parser.add_argument('--mean_param_file', type=str,
-                                 default='/data1/liuguanze/depth_point_cloud/data/neutral_smpl_mean_params.h5', help='path of smpl face')
+                                 default='./data/neutral_smpl_mean_params.h5', help='path of smpl face')
         self.parser.add_argument('--use_self_attention', action='store_true',
                                  help='whether to use the self attention module.')
         self.parser.add_argument('--use_refine_gcn', action='store_true',

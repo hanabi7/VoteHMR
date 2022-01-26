@@ -41,17 +41,10 @@ class HumanPointCloud(nn.Module):
         self.use_downsample_evaluate = opt.use_downsample_evaluate
         self.use_no_voting = opt.use_no_voting
         self.use_conditional_gan = opt.use_conditional_gan
-        if self.use_adversarial_train:
-            self.adversarial_model = Adversarial(opt, act='leaky').cuda()
-        if self.use_conditional_gan:
-            self.adversarial_model = Discriminator().cuda()
         if self.use_downsample_evaluate:
             self.down_sample_matrix = np.load(opt.down_sample_file)
             self.down_sample_matrix = torch.from_numpy(self.down_sample_matrix).cuda().float()
-        if self.use_no_voting:
-            self.votenet = NoVoteNet(opt).cuda()
-        else:
-            self.votenet = VoteNet(opt).cuda()
+        self.votenet = VoteNet(opt).cuda()
         self.visualizer = Visualizer(opt)
         if opt.dist:
             self.votenet = DistributedDataParallel(
@@ -287,11 +280,6 @@ class HumanPointCloud(nn.Module):
         if self.has_segment_loss:
             self.segment_loss = self.loss_utils._segmentation_loss(
                 self.pred_segmentation, gt_segment
-            )
-        if self.has_direction_loss:
-            self.offset_dir_loss = self.loss_utils._offset_dir_loss(
-                gt_offsets,
-                pt_offsets
             )
         if self.has_joint3d_loss_last:
             self.joints3d_loss_last = self.loss_utils._keypoint_3d_loss(

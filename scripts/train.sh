@@ -1,5 +1,5 @@
 batch_size=1
-
+surreal_save_path='/the/path/to/the/processed/surreal/data/'
 
 CUDA_VISIBLE_DEVICES=7 python /data1/liuguanze/human_point_cloud/src/train_dist.py \
     --print_freq 200 \
@@ -16,6 +16,7 @@ CUDA_VISIBLE_DEVICES=7 python /data1/liuguanze/human_point_cloud/src/train_dist.
     --evaluate_epoch 10 \
     --save_epoch_freq 5 \
     --total_epoch 50 \
+    --surreal_save_path $surreal_save_path \
     --gcn_feature_dim 131 \
     --port 8099 \
     --use_generated_data_file \
