@@ -130,7 +130,7 @@ class BaseOptions():
         self.parser.add_argument('--surreal_test_sequence_sample_number', type=int, default=100)
         self.parser.add_argument('--use_generated_data_file', action='store_true',
                                  help='whether to use the data file as datasets')
-        self.parser.add_argument('--use_dfaust', action='store_true',
+        self.parser.add_argument('--use_dfaus`t', action='store_true',
                                  help='can be used as only test_sets')
         self.parser.add_argument('--dfaust_save_path', type=str,
                                  default='/data2/liuguanze/dfaust/out/')
@@ -143,7 +143,6 @@ class BaseOptions():
         # pose2mesh
         self.parser.add_argument('--use_pose2mesh', action='store_true')
         self.parser.add_argument('--use_cheby_conv', action='store_true')
-        self.parser.add_argument('--use_mesh_attention', action='store_true')
         self.parser.add_argument('--num_mesh_output_chan', type=int, default=3)
         self.parser.add_argument('--num_mesh_output_verts', type=int, default=1723)
 

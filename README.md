@@ -58,3 +58,6 @@ We provide the shell scripts for evaluation, set chechpoints as your model path 
 # Fine Tuning on Real Data
 If you wish to fine tune on real data, run  
 > sh scripts/weakly_supervised.sh
+
+# For Online Visdom Support
+Before training starts, to visualize the training results and loss curve in real-time, please run `python -m visdom.server 8098` and click the URL `https//localhost:8098`
