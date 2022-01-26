@@ -5,7 +5,6 @@ import numpy as np
 import sys
 import os
 from pointnet2.pointnet2_modules import PointnetSAModuleVotes, PointnetFPModule
-from src.models.graph_agregate import PointnetSAModuleonGraph, PointnetSAModuleMSGonGraph
 
 
 class Pointnet2Backbone(nn.Module):

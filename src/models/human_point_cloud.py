@@ -17,8 +17,6 @@ from mpl_toolkits.mplot3d import Axes3D
 from src.utils.visual_utils import Visualizer
 from src.utils.segmentation_generator import Segmentation
 from src.models.adversarial import Adversarial
-from src.models.no_votenet import NoVoteNet
-from src.models.conditional_gan import Discriminator
 from src.utils.renderer import *
 
 

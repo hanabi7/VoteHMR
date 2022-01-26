@@ -22,15 +22,13 @@ from backbone_module import Pointnet2Backbone
 from voting_module import VotingModule
 from proposal_module import ProposalModule
 from gcn import GCN
-from inpaint_gcn import IGCN
 from src.utils.graph import Graph, normalize_undigraph, normalize_digraph
 from src.utils.smpl_utils import smpl_structure
 import deepdish
 from scipy.io import loadmat
 from src.models.self_attention import SelfAttention
-from src.models.refine_attention import GlobalAttention, MeshAttention
+from src.models.refine_attention import GlobalAttention
 from src.utils.segmentation_generator import Segmentation
-from src.models.partial_conv import ConvNet
 
 
 class VoteNet(nn.Module):
