@@ -186,7 +186,7 @@ class SurrealDepth(data.Dataset):
     def generate_datasets(self):
         file_name = self.surreal_save_path + self.split + '_annotation.npy'
         np.save(file_name, self.data_list)
-
+        
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()

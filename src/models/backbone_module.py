@@ -1,3 +1,4 @@
+from locale import normalize
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -21,6 +22,14 @@ class Pointnet2Backbone(nn.Module):
 
     def __init__(self, input_feature_dim=0):
         super(Pointnet2Backbone, self).__init__()
+        self.sa1 = PointnetSAModuleVotes(
+            npoint=1024, 
+            radius=0.2, 
+            nsample=64, 
+            mlp=[input_feature_dim, 64, 64, 128], 
+            use_xyz=True,
+            normalize_xyz=True
+        )
         self.sa2 = PointnetSAModuleVotes(
             npoint=512,
             radius=0.4,
@@ -92,6 +101,9 @@ class Pointnet2Backbone(nn.Module):
         xyz, features = self._break_up_pc(pointcloud)
         end_points['sa0_xyz'] = xyz
         end_points['sa0_features'] = features
+        xyz, features, fps_inds = self.sa1(xyz, features)  # this fps_inds is just 0,1,..., 1024
+        end_points['sa1_xyz'] = xyz
+        end_points['sa1_features'] = features
         xyz, features, fps_inds = self.sa2(xyz, features)  # this fps_inds is just 0,1,...,1023
         end_points['sa2_xyz'] = xyz
         end_points['sa2_features'] = features
